@@ -12,3 +12,5 @@
 */
 
 Route::get('/', 'WelcomeController@index');
+
+Route::post('authenticate', 'AuthenticateController@authenticate');
