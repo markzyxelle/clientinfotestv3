@@ -30,7 +30,11 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('welcome');
+		// return view('welcome');
+
+		$arr = array ('a'=>1,'b'=>2,'c'=>3,'d'=>4,'e'=>5);
+
+    	return json_encode($arr);
 	}
 
 }
