@@ -15,7 +15,7 @@ class ResourceController extends Controller {
 	 */
 	public function __construct()
 	{
-		$this->middleware('isAjax');
+		$this->middleware('isJWT');
 		$this->middleware('jwt.auth');
 		$this->middleware('isApproved', ['except' => ['changePassword']]);
 	}

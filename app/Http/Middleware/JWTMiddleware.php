@@ -2,7 +2,7 @@
 
 use Closure;
 
-class AjaxMiddleware {
+class JWTMiddleware {
 
 	/**
 	 * Handle an incoming request.
@@ -13,7 +13,7 @@ class AjaxMiddleware {
 	 */
 	public function handle($request, Closure $next)
 	{
-		if($request->ajax()) return $next($request);
+		if(\JWTAuth::getToken() != null) return $next($request);
 	}
 
 }
