@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAreasTable extends Migration {
+class CreateSavingsTypesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,9 @@ class CreateAreasTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('areas', function(Blueprint $table)
+		Schema::create('savings_types', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('microfinance_institution_id')->unsigned();
-			$table->foreign('microfinance_institution_id')->references('id')->on('microfinance_institutions');
 			$table->string('name');
 			$table->timestamps();
 		});
@@ -29,7 +27,7 @@ class CreateAreasTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('areas');
+		Schema::drop('savings_types');
 	}
 
 }

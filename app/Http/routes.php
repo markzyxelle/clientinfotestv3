@@ -13,4 +13,13 @@
 
 Route::get('/', 'WelcomeController@index');
 
-// Route::post('authenticate', 'AuthenticateController@authenticate');
+// Route::get('/notAuthenticated', 'WelcomeController@notAuthenticated');
+// Route::get('/notApproved', 'WelcomeController@notApproved');
+
+Route::post('authenticate', 'AuthenticateController@authenticate');
+
+Route::post('changePassword', 'ResourceController@changePassword');
+
+Route::get('dashboard', 'ResourceController@dashboard');
+
+Route::get('loans', 'ResourceController@loans');

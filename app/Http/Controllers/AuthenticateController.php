@@ -25,7 +25,16 @@ class AuthenticateController extends Controller {
 			return response()->json(['error' => 'could_not_create_token'], 500);
 		}
 
-		return response()->json(compact('token'));
+		$res = compact('token');
+		if(!\JWTAuth::toUser($token)->approved){
+			$res['error'] = 'user_not_approved';
+			$code = 403;
+		}
+		else{
+			$code = 200;
+		}
+		
+		return response()->json($res, $code);
 	}
 
 	/**

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClientsTable extends Migration {
+class CreateAreaLoanType extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,19 +12,14 @@ class CreateClientsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('clients', function(Blueprint $table)
+		Schema::create('area_loan_type', function(Blueprint $table)
 		{
-			$table->bigIncrements('id');
+			$table->increments('id');
 			$table->integer('area_id')->unsigned();
 			$table->foreign('area_id')->references('id')->on('areas');
-			$table->string('first_name');
-			$table->string('last_name');
+			$table->integer('loan_type_id')->unsigned();
+			$table->foreign('loan_type_id')->references('id')->on('loan_types');
 			$table->string('cc_code');
-			$table->string('username')->unique();
-			$table->string('email')->unique();
-			$table->string('password', 60);
-			$table->boolean('approved');
-			$table->rememberToken();
 			$table->timestamps();
 		});
 	}
@@ -36,7 +31,7 @@ class CreateClientsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('clients');
+		Schema::drop('area_loan_type');
 	}
 
 }

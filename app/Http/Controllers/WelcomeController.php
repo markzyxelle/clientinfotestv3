@@ -36,7 +36,8 @@ class WelcomeController extends Controller {
 
 
 
-    	return json_encode(\App\Client::find(1));
-	}
+    	// return json_encode(\App\Client::find(1));
 
+    	// return \App\Client::find(1)->loans()->first()->areaLoanType->loanType->select(['name'])->get();
+	}
 }

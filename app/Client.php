@@ -22,7 +22,7 @@ class Client extends Model implements AuthenticatableContract, CanResetPasswordC
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['name', 'email', 'password'];
+	protected $fillable = ['name', 'email', 'password'];		//change this -------------------=====================-----
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -30,5 +30,20 @@ class Client extends Model implements AuthenticatableContract, CanResetPasswordC
 	 * @var array
 	 */
 	protected $hidden = ['password', 'remember_token'];
+
+	public function loans()
+    {
+        return $this->hasMany('\App\Loan');
+    }
+
+    public function savings()
+    {
+        return $this->hasMany('\App\Saving');
+    }
+
+    public function area()
+    {
+        return $this->hasOne('\App\Area');
+    }
 
 }
