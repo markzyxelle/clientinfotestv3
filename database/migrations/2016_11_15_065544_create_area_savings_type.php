@@ -16,9 +16,9 @@ class CreateAreaSavingsType extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('area_id')->unsigned();
-			$table->foreign('area_id')->references('id')->on('areas');
+			// $table->foreign('area_id')->references('id')->on('areas');
 			$table->integer('savings_type_id')->unsigned();
-			$table->foreign('savings_type_id')->references('id')->on('savings_types');
+			// $table->foreign('savings_type_id')->references('id')->on('savings_types');
 			$table->string('cc_code');
 			$table->timestamps();
 		});

@@ -16,9 +16,9 @@ class CreateAreaLoanType extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('area_id')->unsigned();
-			$table->foreign('area_id')->references('id')->on('areas');
+			// $table->foreign('area_id')->references('id')->on('areas');
 			$table->integer('loan_type_id')->unsigned();
-			$table->foreign('loan_type_id')->references('id')->on('loan_types');
+			// $table->foreign('loan_type_id')->references('id')->on('loan_types');
 			$table->string('cc_code');
 			$table->timestamps();
 		});

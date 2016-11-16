@@ -15,7 +15,7 @@ class AddAreaSavingsTypeToSavingsTable extends Migration {
 		Schema::table('savings', function(Blueprint $table)
 		{
 			$table->integer('area_savings_type_id')->unsigned();
-			$table->foreign('area_savings_type_id')->references('id')->on('area_savings_type');
+			// $table->foreign('area_savings_type_id')->references('id')->on('area_savings_type');
 		});
 	}
 

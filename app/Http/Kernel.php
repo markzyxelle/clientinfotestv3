@@ -31,6 +31,7 @@ class Kernel extends HttpKernel {
 		'jwt.auth' => 'Tymon\JWTAuth\Middleware\GetUserFromToken',
 		'jwt.refresh' => '\Tymon\JWTAuth\Middleware\RefreshToken',
 		'isApproved' => 'App\Http\Middleware\CheckUserMiddleware',
+		'isAjax' => 'App\Http\Middleware\AjaxMiddleware',
 	];
 
 }

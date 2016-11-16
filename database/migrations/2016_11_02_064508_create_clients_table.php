@@ -16,7 +16,7 @@ class CreateClientsTable extends Migration {
 		{
 			$table->bigIncrements('id');
 			$table->integer('area_id')->unsigned();
-			$table->foreign('area_id')->references('id')->on('areas');
+			// $table->foreign('area_id')->references('id')->on('areas');
 			$table->string('first_name');
 			$table->string('last_name');
 			$table->string('cc_code');

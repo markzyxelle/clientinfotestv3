@@ -16,7 +16,7 @@ class CreateLoansTable extends Migration {
 		{
 			$table->bigIncrements('id');
 			$table->bigInteger('client_id')->unsigned();
-			$table->foreign('client_id')->references('id')->on('clients');
+			// $table->foreign('client_id')->references('id')->on('clients');
 			$table->float('amount', 8, 2);
 			$table->string('cc_code');
 			$table->timestamps();

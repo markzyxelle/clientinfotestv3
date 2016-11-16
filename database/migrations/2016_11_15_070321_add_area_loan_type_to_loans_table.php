@@ -15,7 +15,7 @@ class AddAreaLoanTypeToLoansTable extends Migration {
 		Schema::table('loans', function(Blueprint $table)
 		{
 			$table->integer('area_loan_type_id')->unsigned();
-			$table->foreign('area_loan_type_id')->references('id')->on('area_loan_type');
+			// $table->foreign('area_loan_type_id')->references('id')->on('area_loan_type');
 		});
 	}
 
