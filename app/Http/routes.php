@@ -23,3 +23,7 @@ Route::post('changePassword', 'ResourceController@changePassword');
 Route::get('dashboard', 'ResourceController@dashboard');
 
 Route::get('loans', 'ResourceController@loans');
+
+Route::get('savings', 'ResourceController@savings');
+
+Route::get('dues', 'ResourceController@dues');

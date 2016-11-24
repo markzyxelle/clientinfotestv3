@@ -18,6 +18,7 @@ class CreateSavingsTable extends Migration {
 			$table->bigInteger('client_id')->unsigned();
 			// $table->foreign('client_id')->references('id')->on('clients');
 			$table->float('amount', 8, 2);
+			$table->date('cutoff_date');
 			$table->string('cc_code');
 			$table->timestamps();
 		});

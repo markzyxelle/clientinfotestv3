@@ -2,9 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class AreaLoanType extends Model {
-
-	protected $table = 'area_loan_type';
+class MicrofinanceInstitutionLoanType extends Model {
 
 	public function loanType()
     {

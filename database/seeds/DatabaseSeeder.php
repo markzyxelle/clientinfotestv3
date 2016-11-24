@@ -29,10 +29,11 @@ class DatabaseSeeder extends Seeder {
 
 		\App\LoanType::create(['name' => 'Loan Type 1']);
 		\App\SavingsType::create(['name' => 'Savings Type 1']);
-		\App\AreaLoanType::create(['area_id' => 1, 'loan_type_id' => 1]);
-		\App\AreaSavingsType::create(['area_id' => 1, 'savings_type_id' => 1]);
-		\App\Loan::create(['client_id' => 1, 'amount' => 30000, 'cc_code' => '1234', 'area_loan_type_id' => 1]);
-		\App\Saving::create(['client_id' => 1, 'amount' => 30000, 'cc_code' => '5678', 'area_savings_type_id' => 1]);
+		\App\MicrofinanceInstitutionLoanType::create(['microfinance_institution_id' => 1, 'loan_type_id' => 1]);
+		\App\MicrofinanceInstitutionSavingsType::create(['microfinance_institution_id' => 1, 'savings_type_id' => 1]);
+		\App\Loan::create(['client_id' => 1, 'principal_amount' => 30000, 'interest_amount' => 30000, 'principal_paid' => 30000, 'interest_paid' => 30000, 'cycle_number' => 1, 'principal_arrears' => 30000, 'interest_arrears' => 30000, 'due_date' => strtotime("01/01/2017"), 'due_principal_amount' => 30000, 'due_interest_amount' => 30000, 'cutoff_date' =>  strtotime("01/01/2017"), 'cc_code' => '1234', 'microfinance_institution_loan_type_id' => 1]);
+		\App\Loan::create(['client_id' => 1, 'principal_amount' => 15000, 'interest_amount' => 15000, 'principal_paid' => 15000, 'interest_paid' => 15000, 'cycle_number' => 2, 'principal_arrears' => 15000, 'interest_arrears' => 15000, 'due_date' => strtotime("01/01/2017"), 'due_principal_amount' => 15000, 'due_interest_amount' => 15000, 'cutoff_date' =>  strtotime("01/01/2017"), 'cc_code' => 'abcd', 'microfinance_institution_loan_type_id' => 1]);
+		\App\Saving::create(['client_id' => 1, 'amount' => 30000, 'cc_code' => '5678', 'microfinance_institution_savings_type_id' => 1]);
 	}
 
 }

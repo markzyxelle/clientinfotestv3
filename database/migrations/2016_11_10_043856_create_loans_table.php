@@ -17,7 +17,17 @@ class CreateLoansTable extends Migration {
 			$table->bigIncrements('id');
 			$table->bigInteger('client_id')->unsigned();
 			// $table->foreign('client_id')->references('id')->on('clients');
-			$table->float('amount', 8, 2);
+			$table->float('principal_amount', 8, 2);
+			$table->float('interest_amount', 8, 2);
+			$table->float('principal_paid', 8, 2);
+			$table->float('interest_paid', 8, 2);
+			$table->integer('cycle_number')->unsigned();
+			$table->float('principal_arrears', 8, 2);
+			$table->float('interest_arrears', 8, 2);
+			$table->date('due_date');
+			$table->float('due_principal_amount', 8, 2);
+			$table->float('due_interest_amount', 8, 2);
+			$table->date('cutoff_date');
 			$table->string('cc_code');
 			$table->timestamps();
 		});

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddAreaLoanTypeToLoansTable extends Migration {
+class EditLoansTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -14,7 +14,7 @@ class AddAreaLoanTypeToLoansTable extends Migration {
 	{
 		Schema::table('loans', function(Blueprint $table)
 		{
-			$table->integer('area_loan_type_id')->unsigned();
+			$table->integer('microfinance_institution_loan_type_id')->unsigned();
 			// $table->foreign('area_loan_type_id')->references('id')->on('area_loan_type');
 		});
 	}
@@ -28,7 +28,7 @@ class AddAreaLoanTypeToLoansTable extends Migration {
 	{
 		Schema::table('loans', function(Blueprint $table)
 		{
-			$table->dropForeign('loans_area_loan_type_id_foreign');
+			// $table->dropForeign('loans_area_loan_type_id_foreign');
 			// $table->dropColumn('area_loan_type_id');
 		});
 	}

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddAreaSavingsTypeToSavingsTable extends Migration {
+class EditSavingsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -14,7 +14,7 @@ class AddAreaSavingsTypeToSavingsTable extends Migration {
 	{
 		Schema::table('savings', function(Blueprint $table)
 		{
-			$table->integer('area_savings_type_id')->unsigned();
+			$table->integer('microfinance_institution_savings_type_id')->unsigned();
 			// $table->foreign('area_savings_type_id')->references('id')->on('area_savings_type');
 		});
 	}
@@ -28,10 +28,9 @@ class AddAreaSavingsTypeToSavingsTable extends Migration {
 	{
 		Schema::table('savings', function(Blueprint $table)
 		{
-			$table->dropForeign('savings_area_savings_type_id_foreign');
+			// $table->dropForeign('savings_area_savings_type_id_foreign');
 			// $table->dropColumn('area_savings_type_id');
 		});
 	}
 
 }
-// 
