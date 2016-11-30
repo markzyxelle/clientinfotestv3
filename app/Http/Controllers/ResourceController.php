@@ -178,8 +178,8 @@ class ResourceController extends Controller {
 	 */
 	public function dues()
 	{
-		$client = \App\Client::find(1);
-		// $client = \JWTAuth::toUser(\JWTAuth::getToken());
+		// $client = \App\Client::find(1);
+		$client = \JWTAuth::toUser(\JWTAuth::getToken());
 		$loans = $client->load([
 	  	'loans' => function($query){
 	  		$query->get(['id', 'client_id', 'microfinance_institution_loan_type_id', 'principal_arrears', 'interest_arrears', 'due_date', 'due_principal_amount', 'due_interest_amount', 'cycle_number', 'cutoff_date']);
