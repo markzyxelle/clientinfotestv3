@@ -178,8 +178,8 @@ class ResourceController extends Controller {
 	 */
 	public function dues()
 	{
-		// $client = \App\Client::find(1);
-		$client = \JWTAuth::toUser(\JWTAuth::getToken());
+		$client = \App\Client::find(1);
+		// $client = \JWTAuth::toUser(\JWTAuth::getToken());
 		$loans = $client->load([
 	  	'loans' => function($query){
 	  		$query->get(['id', 'client_id', 'microfinance_institution_loan_type_id', 'principal_arrears', 'interest_arrears', 'due_date', 'due_principal_amount', 'due_interest_amount', 'cycle_number', 'cutoff_date']);
@@ -191,7 +191,7 @@ class ResourceController extends Controller {
 	  		$query->get(['id','name']);
 	  	},
 	  	'loans.microfinanceinstitutionsavingstype' => function($query){
-	  		$query->get(['id','name']);
+	  		$query->get(['id','savings_type_id']);
 	  		$query->withPivot('due_amount');
 	  	},
 	  	'loans.microfinanceinstitutionsavingstype.savingstype' => function($query){
@@ -204,6 +204,12 @@ class ResourceController extends Controller {
 	  	$counter = 0;
 	  	foreach ($loans as $loan) {
 	  		$loans[$counter]["loan_type"] = $loan["microfinanceinstitutionloantype"]["loantype"]["name"];
+	  		// $loans[$counter]["savings_type"] = $loan["microfinanceinstitutionsavingstype"]["savingstype"];
+	  		// $savings_counter = 0;
+	  		foreach($loan["microfinanceinstitutionsavingstype"] as $saving){
+	  			$loans[$counter]["savings"][$saving["savingstype"]["name"]] = $saving["pivot"]["due_amount"];
+	  		}
+	  		unset($loans[$counter]["microfinanceinstitutionsavingstype"]);
 	  		unset($loans[$counter]["microfinanceinstitutionloantype"]);
 	  		unset($loans[$counter]["id"]);
 	  		unset($loans[$counter]["client_id"]);
