@@ -60,7 +60,7 @@ class ResourceController extends Controller {
 		$client = \JWTAuth::toUser(\JWTAuth::getToken());
 		$loans = $client->load([
 	  	'loans' => function($query){
-	  		$query->get(['id', 'client_id', 'microfinance_institution_loan_type_id', 'principal_amount', 'interest_amount', 'principal_paid', 'interest_paid', 'cycle_number', 'cutoff_date']);
+	  		$query->get(['id', 'client_id', 'microfinance_institution_loan_type_id', 'principal_amount', 'interest_amount', 'principal_paid', 'interest_paid', 'cycle_number', 'cutoff_date', 'start_payment_date', 'maturity_date', 'amortization_left', 'payment_frequency']);
 	  	},
 	  	'loans.microfinanceinstitutionloantype' => function($query){
 	  		$query->get(['id','loan_type_id']);
