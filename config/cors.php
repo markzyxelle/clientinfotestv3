@@ -18,8 +18,8 @@ return array(
     'defaults' => array(
         'supportsCredentials' => false,
         'allowedOrigins' => array('*'),
-        'allowedHeaders' => array('*'),
-        'allowedMethods' => array('*'),
+        'allowedHeaders' => array('Content-Type', 'Authorization'),
+        'allowedMethods' => array('POST', 'PUT', 'GET', 'DELETE'),
         'exposedHeaders' => array(''),
         'maxAge' => 0,
         'hosts' => array(),
@@ -34,7 +34,7 @@ return array(
         ),
         '*' => array(
             'allowedOrigins' => array('*'),
-            'allowedHeaders' => array('Content-Type'),
+            'allowedHeaders' => array('Content-Type', 'Authorization'),
             'allowedMethods' => array('POST', 'PUT', 'GET', 'DELETE'),
             'maxAge' => 3600,
             'hosts' => array('api.*'),
