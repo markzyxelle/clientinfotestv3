@@ -21,6 +21,7 @@ return array(
         'allowedHeaders' => array('Content-Type', 'Authorization', 'Access-Control-Allow-Origin'),
         'allowedMethods' => array('POST', 'PUT', 'GET', 'DELETE'),
         'exposedHeaders' => array(''),
+        'Access-Control-Allow-Origin' => array("*"),
         'maxAge' => 0,
         'hosts' => array(),
     ),
